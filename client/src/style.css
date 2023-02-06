@@ -8,9 +8,14 @@
 }
 .booksDiv{
   display: flex;
+  gap: 10px;
 }
 .bookDiv{
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
 img{
     width: 200px;
@@ -18,3 +23,11 @@ img{
     object-fit: cover;
     background-color: coral;
 }
+.delete {
+    border: 1px solid rgb(219, 19, 19);
+    color: rgb(197, 13, 13);
+}
+.update {
+    border: 1px solid rgb(201, 6, 240);
+    color: rgb(190, 3, 190);
+  }
