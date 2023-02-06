@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { getBooks } from '../services/GetBooks'
 
 
@@ -8,7 +9,7 @@ const Books = () => {
 
     useEffect(() => {
         getBooks().then((result)=> {
-            console.log(result);
+            setBooks(result.data);
         }).catch((err) => {
             console.log(err)
         })
@@ -16,7 +17,21 @@ const Books = () => {
 
 
   return (
-    <div>Books</div>
+    <div >
+        <h1>KHALIL BOOKS APP</h1>
+        <div className='booksDiv'>
+        {books.map((item , i) => (
+            <div key={i} className='bookDiv'>
+                {item.cover && <img src={item.cover} alt ='' />}
+                <h2>{item.title}</h2>
+                <p>{item.desc}</p>
+                <span>{item.price}</span>
+            </div>
+        ))}
+        </div>
+        <button><Link to='/add'>Add new book</Link></button>
+    </div>
+
   )
 }
 
